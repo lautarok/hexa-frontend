@@ -1,0 +1,18 @@
+{
+    "common": { "appName": "Hexa" },
+    "auth": { "login": "Entrar", "signup": "Criar uma conta" },
+    "header": { "iconAlt": "Ícone da `Hexa` em formato SVG" },
+    "footer": { "platform": "Plataforma", "user": "Usuário" },
+    "language": { "changeLocaleLabel": "Selecione seu idioma", "currentLocale": "Português" },
+    "seo": {
+        "keywords": ["leilões", "hexa", "tempo real", "lances", "vendas online", "mercado", "leilões ao vivo"],
+        "description": "Leilões em tempo real",
+        "largeDescription": "Hexa é a plataforma líder em leilões digitais de última geração. Nossa tecnologia permite participar de lances ao vivo com latência zero, garantindo transparência e segurança em cada transação. Junte-se a uma comunidade global onde comprar e vender em tempo real é mais ágil e eficiente do que nunca."
+    },
+    "home": {
+        "name": "Início",
+        "heroTitle": "Bem-vindo à Hexa",
+        "heroDescription": "Hexa é um sistema de leilões online em tempo real"
+    },
+    "faqs": { "name": "Perguntas frequentes" }
+}

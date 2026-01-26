@@ -1,0 +1,18 @@
+{
+    "common": { "appName": "Hexa" },
+    "auth": { "login": "Inloggen", "signup": "Account aanmaken" },
+    "header": { "iconAlt": "`Hexa`-icoon in SVG-formaat" },
+    "footer": { "platform": "Platform", "user": "Gebruiker" },
+    "language": { "changeLocaleLabel": "Selecteer je taal", "currentLocale": "Nederlands" },
+    "seo": {
+        "keywords": ["veilingen", "hexa", "real-time", "biedingen", "online verkoop", "marktplaats", "live veilingen"],
+        "description": "Real-time veilingen",
+        "largeDescription": "Hexa is het toonaangevende digitale veilingsplatform van de volgende generatie. Onze technologie maakt deelname aan live biedingen mogelijk met nagenoeg geen vertraging, wat transparantie en veiligheid bij elke transactie garandeert. Word lid van een wereldwijde gemeenschap waar online kopen en verkopen sneller en efficiënter is dan ooit."
+    },
+    "home": {
+        "name": "Home",
+        "heroTitle": "Welkom bij Hexa",
+        "heroDescription": "Hexa is een real-time online veilingsysteem"
+    },
+    "faqs": { "name": "Veelgestelde vragen" }
+}

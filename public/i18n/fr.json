@@ -1,0 +1,18 @@
+{
+    "common": { "appName": "Hexa" },
+    "auth": { "login": "Se connecter", "signup": "Créer un compte" },
+    "header": { "iconAlt": "Icône de `Hexa` au format SVG" },
+    "footer": { "platform": "Plateforme", "user": "Utilisateur" },
+    "language": { "changeLocaleLabel": "Choisissez votre langue", "currentLocale": "Français" },
+    "seo": {
+        "keywords": ["enchères", "hexa", "temps réel", "offres", "ventes en ligne", "marché", "enchères en direct"],
+        "description": "Enchères en temps réel",
+        "largeDescription": "Hexa est la plateforme d'enchères numériques de nouvelle génération. Notre technologie permet de participer à des enchères en direct avec une latence zéro, garantissant transparence et sécurité pour chaque transaction. Rejoignez une communauté mondiale où l'achat et la vente en temps réel sont plus fluides que jamais."
+    },
+    "home": {
+        "name": "Accueil",
+        "heroTitle": "Bienvenue sur Hexa",
+        "heroDescription": "Hexa est un système d'enchères en ligne en temps réel"
+    },
+    "faqs": { "name": "Questions fréquentes" }
+}

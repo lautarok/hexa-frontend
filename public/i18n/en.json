@@ -1,0 +1,18 @@
+{
+    "common": { "appName": "Hexa" },
+    "auth": { "login": "Log in", "signup": "Create an account" },
+    "header": { "iconAlt": "`Hexa` icon in SVG format" },
+    "footer": { "platform": "Platform", "user": "User" },
+    "language": { "changeLocaleLabel": "Select your language", "currentLocale": "English" },
+    "seo": {
+        "keywords": ["auctions", "hexa", "real-time", "bids", "online sales", "marketplace", "live auctions"],
+        "description": "Real-time auctions",
+        "largeDescription": "Hexa is the leading next-generation digital auction platform. Our technology enables participation in live bidding with zero latency, ensuring transparency and security in every transaction. Join a global community where buying and selling in real-time is faster and more efficient than ever."
+    },
+    "home": {
+        "name": "Home",
+        "heroTitle": "Welcome to Hexa",
+        "heroDescription": "Hexa is a real-time online auction system"
+    },
+    "faqs": { "name": "FAQs" }
+}
