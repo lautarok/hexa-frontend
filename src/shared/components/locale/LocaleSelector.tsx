@@ -1,10 +1,13 @@
 "use client"
 
 import { usePathname } from "next/navigation";
-import getTraduction from "../services/getTraduction";
-import DropdownMenu, { DropdownMenuLabel, DropdownMenuLink } from "./DropdownMenu";
+import getTraduction from "../../services/getTraduction";
 import * as Icon from "akar-icons"
 import { useMemo } from "react";
+import DropdownMenu from "../dropdown/DropdownMenu";
+import DropdownMenuTitle from "../dropdown/DropdownMenuTitle";
+import DropdownMenuLink from "../dropdown/DropdownMenuLink";
+import DropdownMenuBox from "../dropdown/DropdownMenuBox";
 
 export default function LocaleSelector({
     traduction,
@@ -22,7 +25,7 @@ export default function LocaleSelector({
     }, [pathname])
 
     return (
-        <DropdownMenu boxAlignmentX={boxAlignmentX} label={
+        <DropdownMenu label={
             <div className="w-fit h-fit flex items-center gap-2">
                 {
                     !discrete ? (
@@ -36,14 +39,16 @@ export default function LocaleSelector({
                 >{traduction.language.currentLocale}</span>
             </div>
         }>
-            <DropdownMenuLabel>
-                {traduction.language.changeLocaleLabel}
-            </DropdownMenuLabel>
-            <DropdownMenuLink href={`/es/${pathnameSuffix}`}>Español</DropdownMenuLink>
-            <DropdownMenuLink href={`/en/${pathnameSuffix}`}>English</DropdownMenuLink>
-            <DropdownMenuLink href={`/fr/${pathnameSuffix}`}>Français</DropdownMenuLink>
-            <DropdownMenuLink href={`/pt/${pathnameSuffix}`}>Português</DropdownMenuLink>
-            <DropdownMenuLink href={`/nl/${pathnameSuffix}`}>Nederlands</DropdownMenuLink>
+            <DropdownMenuBox alignmentX={boxAlignmentX}>
+                <DropdownMenuTitle>
+                    {traduction.language.changeLocaleLabel}
+                </DropdownMenuTitle>
+                <DropdownMenuLink href={`/es/${pathnameSuffix}`}>Español</DropdownMenuLink>
+                <DropdownMenuLink href={`/en/${pathnameSuffix}`}>English</DropdownMenuLink>
+                <DropdownMenuLink href={`/fr/${pathnameSuffix}`}>Français</DropdownMenuLink>
+                <DropdownMenuLink href={`/pt/${pathnameSuffix}`}>Português</DropdownMenuLink>
+                <DropdownMenuLink href={`/nl/${pathnameSuffix}`}>Nederlands</DropdownMenuLink>
+            </DropdownMenuBox>
         </DropdownMenu>
     )
 }

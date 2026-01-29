@@ -1,6 +1,6 @@
-import Footer from "@/src/shared/components/Footer";
-import Header from "@/src/shared/components/Header";
-import LocaleSelector from "@/src/shared/components/LocaleSelector";
+import Footer from "@/src/shared/components/layout/Footer";
+import Header from "@/src/shared/components/layout/Header";
+import LocaleSelector from "@/src/shared/components/locale/LocaleSelector";
 import getTraduction from "@/src/shared/services/getTraduction";
 
 export default async function Home({

@@ -5,7 +5,7 @@
     "footer": { "platform": "Plataforma", "user": "Usuario" },
     "language": { "changeLocaleLabel": "Selecciona tu idioma", "currentLocale": "Español" },
     "seo": {
-        "keywords": ["subastas", "hexa", "tiempo real", "pujas", "ventas online", "mercado", "subastas en vivo"],
+        "keywords": ["subastas", "Hexa", "tiempo real", "pujas", "ventas online", "mercado", "subastas en vivo"],
         "description": "Subastas en tiempo real",
         "largeDescription": "Hexa es la plataforma líder en subastas digitales de última generación. Nuestra tecnología permite participar en pujas en vivo con latencia cero, garantizando transparencia y seguridad en cada transacción. Únete a una comunidad global donde comprar y vender en tiempo real es más ágil que nunca."
     },

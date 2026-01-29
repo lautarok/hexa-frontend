@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google"
 import getTraduction from "../../shared/services/getTraduction";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
+import ModalDialog from "@/src/core/components/ModalDialog";
+import AppProviders from "./providers";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"]
@@ -46,7 +48,10 @@ export default async function RootLayout({
       <body
         className={`${poppins.className} antialiased flex flex-col flex-wrap overflow-y-scroll`}
       >
-        {children}
+        <AppProviders>
+          {children}
+          <ModalDialog />
+        </AppProviders>
       </body>
     </html>
   );

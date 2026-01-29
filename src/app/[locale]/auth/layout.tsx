@@ -1,8 +1,8 @@
 import getTraduction from "@/src/shared/services/getTraduction";
 import Image from "next/image";
 import AppIcon from "@/public/images/icon.png"
-import IconButton from "@/src/shared/components/IconButton";
-import LocaleSelector from "@/src/shared/components/LocaleSelector";
+import IconButton from "@/src/shared/components/common/IconButton";
+import LocaleSelector from "@/src/shared/components/locale/LocaleSelector";
 import Link from "next/link";
 import * as Icon from "akar-icons"
 

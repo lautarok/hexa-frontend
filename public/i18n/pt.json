@@ -5,7 +5,7 @@
     "footer": { "platform": "Plataforma", "user": "Usuário" },
     "language": { "changeLocaleLabel": "Selecione seu idioma", "currentLocale": "Português" },
     "seo": {
-        "keywords": ["leilões", "hexa", "tempo real", "lances", "vendas online", "mercado", "leilões ao vivo"],
+        "keywords": ["leilões", "Hexa", "tempo real", "lances", "vendas online", "mercado", "leilões ao vivo"],
         "description": "Leilões em tempo real",
         "largeDescription": "Hexa é a plataforma líder em leilões digitais de última geração. Nossa tecnologia permite participar de lances ao vivo com latência zero, garantindo transparência e segurança em cada transação. Junte-se a uma comunidade global onde comprar e vender em tempo real é mais ágil e eficiente do que nunca."
     },

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import getTraduction from "../services/getTraduction";
+import getTraduction from "../../services/getTraduction";
 import AppIcon from "@/public/images/icon.png"
 import Link from "next/link";
-import LocaleSelector from "./LocaleSelector";
+import LocaleSelector from "../locale/LocaleSelector";
 
 export default function Header({
     locale,
@@ -33,7 +33,7 @@ export default function Header({
                         <Link href={`/${locale}/auth/login`}>{traduction.auth.login}</Link>
                     </li>
                     <li>
-                        <Link href={`/${locale}/auth/signup`} className="px-4 py-2 font-semibold rounded-md bg-yellow-200 text-black">{traduction.auth.signup}</Link>
+                        <Link href={`/${locale}/auth/signup`} className="px-4 py-2 font-semibold rounded-xl bg-white text-black">{traduction.auth.signup}</Link>
                     </li>
                 </ul>
             </nav>

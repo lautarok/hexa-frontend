@@ -1,8 +1,8 @@
 import Image from "next/image";
-import getTraduction from "../services/getTraduction";
+import getTraduction from "../../services/getTraduction";
 import SpecialIcon from "@/public/images/icon.png"
 import Link from "next/link";
-import LocaleSelector from "./LocaleSelector";
+import LocaleSelector from "../locale/LocaleSelector";
 
 export default async function Footer({
     traduction,
