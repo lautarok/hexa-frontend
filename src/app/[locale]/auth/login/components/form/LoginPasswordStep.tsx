@@ -56,6 +56,7 @@ const LoginPasswordStep = forwardRef<LoginPasswordStepHandle>(
                         autoFocus
                         label="Contraseña"
                         icon="Key"
+                        type="password"
                         {...form.register("password")}
                     />
                     <nav className="w-full h-fit grid grid-cols-[auto_1fr] gap-6">
