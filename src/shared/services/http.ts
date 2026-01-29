@@ -13,16 +13,22 @@ export class HttpError extends Error {
     }
 }
 
+type DefaultMethodOptions = {
+    headers?: Record<string, string>
+    searchParams?: Record<string, string>
+    disableCache?: boolean
+}
+
+type MutationMethodOptions = DefaultMethodOptions & {
+    body?: Record<string, unknown>
+    formData?: FormData
+}
+
 const apiCall = async <TResponse>(
     path: string,
-    options?: {
-        disableCache?: boolean,
-        headers?: Record<string, string>,
-        body?: unknown,
-        method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH"
-    }
+    options?: MutationMethodOptions & {method: string}
 ): Promise<TResponse> => {
-    if (!options?.disableCache && options?.method === "GET") {
+    if (!options?.disableCache && options?.method === "GET" && cacheMap.has(path)) {
         return cacheMap.get(path) as TResponse
     }
 
@@ -38,7 +44,7 @@ const apiCall = async <TResponse>(
         throw new HttpError(response)
     }
 
-    if (options?.method === "GET") {
+    if (options?.method === "GET" && global["window"]) {
         cacheMap.set(path, response)
     }
 
@@ -47,10 +53,7 @@ const apiCall = async <TResponse>(
 
 const POST = <TResponse>(
     path: string,
-    options?: {
-        headers?: Record<string, string>,
-        body?: unknown
-    }
+    options?: MutationMethodOptions
 ): Promise<TResponse> => {
     return apiCall(path, {
         ...options,
@@ -58,8 +61,19 @@ const POST = <TResponse>(
     })
 }
 
+const GET = <TResponse>(
+    path: string,
+    options?: DefaultMethodOptions
+): Promise<TResponse> => {
+    return apiCall(path, {
+        ...options,
+        method: "GET"
+    })
+}
+
 const http = {
-    POST
+    POST,
+    GET
 }
 
 export default http

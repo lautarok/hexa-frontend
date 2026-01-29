@@ -3,7 +3,7 @@
 import { useState } from "react"
 import ModalDialogContext from "../context/modalDialogContext"
 
-export default function ModalDialogContextProvider({
+export default function ModalDialogProvider({
     children
 }: {
     children: React.ReactNode

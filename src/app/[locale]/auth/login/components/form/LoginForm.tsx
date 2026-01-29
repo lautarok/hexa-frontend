@@ -8,9 +8,16 @@ import ServerError from "@/src/shared/types/serverError"
 import useModalDialog from "@/src/shared/hooks/useModalDialog"
 import { useRef } from "react"
 import retryDialog from "@/src/shared/lib/retryDialog"
+import useAuth from "@/src/shared/hooks/useAuth"
+import { useParams, useRouter } from "next/navigation"
 
 export default function LoginForm() {
-    const modalDialog = useModalDialog()
+    const modalDialog = useModalDialog(),
+        auth = useAuth(),
+        router = useRouter(),
+        params = useParams<{
+            locale: string
+        }>()
 
     const formCarrouselRef = useRef<FormCarrouselHandle | null>(null),
         loginEmailStepRef = useRef<LoginEmailStepHandle | null>(null),
@@ -28,6 +35,7 @@ export default function LoginForm() {
         if (
             !loginEmailStepRef.current
             || !loginPasswordStepRef.current
+            || !auth
         ) {
             return
         }
@@ -38,9 +46,9 @@ export default function LoginForm() {
                 password: loginPasswordStepRef.current.password()
             })
 
-            localStorage.setItem("auth_token", response.token)
+            auth.set(response.token, response.user)
 
-            alert("HOLA "+response.user.name.split(" ").pop()+" :D. Excelente esfuerzo, gracias universo :)")
+            router.push(`/${params.locale}/`)
         } catch (error) {
             const serverError = error as ServerError
 
