@@ -63,4 +63,6 @@ const FormCarrousel = forwardRef<FormCarrouselHandle, {
     }
 )
 
+FormCarrousel.displayName = "Form carrousel"
+
 export default FormCarrousel

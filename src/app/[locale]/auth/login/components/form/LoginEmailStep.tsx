@@ -49,10 +49,10 @@ const LoginEmailStep = forwardRef<LoginEmailStepHandle>(
                 onInvalid={handleInvalid}
             >
                 <FormField
-                    autoFocus
                     label="Nombre de usuario o correo"
                     icon="Mention"
                     placeholder="Ej: johndoe@gmail.com"
+                    autoFocus
                     disabled={form.formState.isSubmitting}
                     {...form.register("email")}
                 />
@@ -69,5 +69,7 @@ const LoginEmailStep = forwardRef<LoginEmailStepHandle>(
         )
     }
 )
+
+LoginEmailStep.displayName = "Login email step"
 
 export default LoginEmailStep

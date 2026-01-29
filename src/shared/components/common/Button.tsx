@@ -28,7 +28,7 @@ export default function Button({
     const isDisabled = useMemo(() => 
         (formCarrouselStep && !formCarrouselStep.isCurrent)
         || disabled
-    , [disabled, formCarrouselStep?.isCurrent])
+    , [disabled, formCarrouselStep])
 
     return (
         <button

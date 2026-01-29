@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react"
 import DropdownMenuProvider from "../../providers/DropdownMenuProvider"
-import DropdownMenuBox from "./DropdownMenuBox"
 import * as Icon from "akar-icons"
 
 export default function DropdownMenu({

@@ -1,8 +1,12 @@
 import { createContext } from "react";
 
-const DropdownMenuContext = createContext({
+const DropdownMenuContext = createContext<{
+    isOpen: boolean
+    set: (to: boolean) => void
+    toggle: () => void
+}>({
     isOpen: false,
-    set: (to: boolean) => {},
+    set: () => {},
     toggle: () => {}
 })
 

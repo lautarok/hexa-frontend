@@ -69,8 +69,8 @@ export default function LoginForm() {
                 ref={formCarrouselRef}
                 onSubmit={handleSubmit}
                 items={[
-                    <LoginEmailStep ref={loginEmailStepRef} />,
-                    <LoginPasswordStep ref={loginPasswordStepRef} />
+                    <LoginEmailStep key={1} ref={loginEmailStepRef} />,
+                    <LoginPasswordStep key={2} ref={loginPasswordStepRef} />
                 ]}
             />
         </div>

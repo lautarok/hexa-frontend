@@ -76,4 +76,6 @@ const LoginPasswordStep = forwardRef<LoginPasswordStepHandle>(
     }
 )
 
+LoginPasswordStep.displayName = "Login password step"
+
 export default LoginPasswordStep

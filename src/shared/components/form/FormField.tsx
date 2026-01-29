@@ -37,10 +37,12 @@ export default function FormField({
     useEffect(() => {
         if (!fieldRef.current || !inputRef.current) return
 
-        fieldRef.current.addEventListener("click", handleFocus)
+        const field = fieldRef.current
+
+        field.addEventListener("click", handleFocus)
 
         return () => {
-            fieldRef.current?.removeEventListener("click", handleFocus)
+            field.removeEventListener("click", handleFocus)
         }
     }, [fieldRef, handleFocus])
 
@@ -67,7 +69,7 @@ export default function FormField({
                 }
                 <div className="w-[1px] h-6 bg-white/10"></div>
                 <input
-                    type="text"
+                    type={type}
                     placeholder={placeholder}
                     className="w-full cursor-text"
                     autoComplete="off"
