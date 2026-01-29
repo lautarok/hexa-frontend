@@ -9,7 +9,7 @@ export default function DropdownMenuTitle({
     const dropdownMenu = useDropdownMenu()
 
     return (
-        <div className="w-full h-fit flex items-center gap-2">
+        <div className="w-full h-fit grid grid-cols-[1fr_auto] items-center gap-2">
             <p className="text-sm font-semibold block inline min-w-fit whitespace-nowrap m-3">
                 {children}
             </p>

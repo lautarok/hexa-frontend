@@ -10,8 +10,6 @@ export default function AppMiddleware(req: NextRequest) {
         lang = urlSegments[1],
         path = "/" + urlSegments.slice(2).join("/")
 
-    console.log(lang)
-
     if (lang && !token && PROTECTED_ROUTES.some(route => path.startsWith(route))) {
         return NextResponse.redirect(new URL(`/${lang}/auth/login`, req.url))
     } else if (lang && token && ONLY_GUEST_ROUTES.some(route => path.startsWith(route))) {
@@ -23,7 +21,6 @@ export default function AppMiddleware(req: NextRequest) {
 
 export const config = {
     matcher: [
-        "/:lang/dashboard/:path*",
-        "/:lang/auth/:path*"
+        "/:path*"
     ]
 }

@@ -1,5 +1,5 @@
 import getTraduction from "@/src/shared/services/getTraduction"
-import LoginForm from "./components/form/LoginForm"
+import LoginForm from "../../../../ui/auth/login/components/form/LoginForm"
 import * as Icon from "akar-icons"
 
 export default async function Login({

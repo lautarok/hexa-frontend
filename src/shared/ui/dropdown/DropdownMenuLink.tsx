@@ -1,15 +1,20 @@
 import Link from "next/link"
 import useDropdownMenu from "../../hooks/useDropdownMenu"
+import * as Icon from "akar-icons"
 
 export default function DropdownMenuLink({
     className,
     children,
+    suffixIcon,
     href
 }: {
     className?: string,
-    children: React.ReactNode,
+    children: string,
+    suffixIcon?: keyof typeof Icon,
     href?: string
 }) {
+    const SuffixIcon = suffixIcon ? Icon[suffixIcon] : undefined
+
     const dropdownMenu = useDropdownMenu()
     
     return (
@@ -17,11 +22,16 @@ export default function DropdownMenuLink({
             href={href || ""}
             onClick={() => {dropdownMenu.set(false)}}
             className={[
-                "w-full h-full text-left rounded-2xl px-3 py-2 text-md hover:bg-white/10 rounded-md",
+                "w-full h-full text-left rounded-xl px-3 py-2 text-md hover:bg-white/10 flex items-center gap-3",
                 className
             ].join(" ")}
         >
-            {children}
+            {
+                SuffixIcon && (
+                    <SuffixIcon className="size-4" />
+                )
+            }
+            <span className="whitespace-nowrap">{children}</span>
         </Link>
     )
 }

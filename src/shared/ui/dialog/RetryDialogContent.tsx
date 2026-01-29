@@ -19,7 +19,7 @@ export default function RetryDialogContent({
                 variant="primary"
                 onClick={modalDialog.close}
             >
-                <span>Reintentar</span>
+                Reintentar
             </Button>
         </>
     )

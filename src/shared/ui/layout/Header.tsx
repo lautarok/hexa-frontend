@@ -4,8 +4,8 @@ import Image from "next/image";
 import getTraduction from "../../services/getTraduction";
 import AppIcon from "@/public/images/icon.png"
 import Link from "next/link";
-import LocaleSelector from "../locale/LocaleSelector";
 import useAuth from "../../hooks/useAuth";
+import MyUserCard from "./MyUserCard";
 import Button from "../common/Button";
 
 export default function Header({
@@ -30,22 +30,31 @@ export default function Header({
             </Link>
             <nav>
                 <ul className="w-fit h-fit flex items-center gap-6 text-md">
-                    <li>
-                        <LocaleSelector traduction={traduction} />
-                    </li>
                     {
                         !auth?.token ? (
                             <>
                                 <li>
-                                    <Link href={`/${locale}/auth/login`}>{traduction.auth.login}</Link>
+                                    <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        href={`/${locale}/auth/login`}
+                                    >
+                                        {traduction.auth.login}
+                                    </Button>
                                 </li>
                                 <li>
-                                    <Link href={`/${locale}/auth/signup`} className="px-4 py-2 font-semibold rounded-xl bg-white text-black">{traduction.auth.signup}</Link>
+                                    <Button
+                                        size="sm"
+                                        variant="primary"
+                                        href={`/${locale}/auth/signup`}
+                                    >
+                                        {traduction.auth.signup}
+                                    </Button>
                                 </li>
                             </>
                         ) : (
                             <li>
-                                <Button onClick={auth.clear}>Cerrar sesión</Button>
+                                <MyUserCard />
                             </li>
                         )
                     }

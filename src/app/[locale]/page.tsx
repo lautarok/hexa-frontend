@@ -1,6 +1,6 @@
-import Footer from "@/src/shared/components/layout/Footer";
-import Header from "@/src/shared/components/layout/Header";
-import LocaleSelector from "@/src/shared/components/locale/LocaleSelector";
+import Footer from "@/src/shared/ui/layout/Footer";
+import Header from "@/src/shared/ui/layout/Header";
+import LocaleSelector from "@/src/shared/ui/layout/LocaleSelector";
 import getTraduction from "@/src/shared/services/getTraduction";
 
 export default async function Home({
@@ -19,7 +19,7 @@ export default async function Home({
       <main>
         <section className="w-full h-fit min-h-[calc(100dvh-6rem)] pb-10 flex items-center justify-center text-center flex-col">
           <h1 className="text-3xl font-bold">{traduction.home.heroTitle}</h1>
-          <p className="text-xl">{traduction.home.heroDescription}</p>
+          <p className="text-xl mb-4">{traduction.home.heroDescription}</p>
           <LocaleSelector boxAlignmentX="center" traduction={traduction} />
         </section>
       </main>

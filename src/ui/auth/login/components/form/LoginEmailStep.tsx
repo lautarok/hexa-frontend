@@ -1,6 +1,6 @@
-import Button from "@/src/shared/components/common/Button";
-import Form from "@/src/shared/components/form/Form";
-import FormField from "@/src/shared/components/form/FormField";
+import Button from "@/src/shared/ui/common/Button";
+import Form from "@/src/shared/ui/form/Form";
+import FormField from "@/src/shared/ui/form/FormField";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import loginEmailSchema, { LoginEmailInput } from "../../lib/email.schema";

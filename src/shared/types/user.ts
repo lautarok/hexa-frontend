@@ -1,3 +1,4 @@
+import Credential from "./credential"
 import Role from "./role"
 
 type User = {

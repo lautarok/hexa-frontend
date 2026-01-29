@@ -1,6 +1,6 @@
 "use client"
 
-import FormCarrousel, { FormCarrouselHandle } from "@/src/shared/components/form/FormCarrousel"
+import FormCarrousel, { FormCarrouselHandle } from "@/src/shared/ui/form/FormCarrousel"
 import LoginEmailStep, { LoginEmailStepHandle } from "./LoginEmailStep"
 import LoginPasswordStep, { LoginPasswordStepHandle } from "./LoginPasswordStep"
 import { login } from "../../services/loginService"
@@ -36,6 +36,7 @@ export default function LoginForm() {
             !loginEmailStepRef.current
             || !loginPasswordStepRef.current
             || !auth
+            || auth.token
         ) {
             return
         }

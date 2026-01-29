@@ -1,10 +1,11 @@
 import getTraduction from "@/src/shared/services/getTraduction";
 import Image from "next/image";
 import AppIcon from "@/public/images/icon.png"
-import IconButton from "@/src/shared/components/common/IconButton";
-import LocaleSelector from "@/src/shared/components/locale/LocaleSelector";
+import IconButton from "@/src/shared/ui/common/IconButton";
+import LocaleSelector from "@/src/shared/ui/layout/LocaleSelector";
 import Link from "next/link";
 import * as Icon from "akar-icons"
+import ActionButton from "@/src/ui/auth/layout/components/ActionButton";
 
 export default async function AuthLayout({
     children,
@@ -25,6 +26,7 @@ export default async function AuthLayout({
                     <IconButton
                         icon="ArrowLeft"
                         strokeWidth={3}
+                        className="-translate-x-2"
                     />
                     <span className="text-sm font-semibold">Volver al inicio</span>
                 </Link>
@@ -37,6 +39,9 @@ export default async function AuthLayout({
                     />
                     <p className="text-xl font-semibold">{traduction.common.appName}</p>
                 </Link>
+                <div className="w-fit ml-auto">
+                    <ActionButton />
+                </div>
             </div>
             <main className="h-full flex flex-col gap-10 items-center justify-center">
                 {children}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import IconButton from "@/src/shared/components/common/IconButton"
+import IconButton from "@/src/shared/ui/common/IconButton"
 import useModalDialog from "@/src/shared/hooks/useModalDialog"
 
 export default function ModalDialog() {
