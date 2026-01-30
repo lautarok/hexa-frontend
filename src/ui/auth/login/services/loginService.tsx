@@ -1,5 +1,5 @@
 import http from "@/src/shared/services/http"
-import User from "@/src/shared/types/user"
+import Token from "@/src/shared/types/token"
 
 export const login = async ({
     usernameOrEmail,
@@ -8,11 +8,7 @@ export const login = async ({
     usernameOrEmail: string
     password: string
 }) => {
-    const response = await http.POST<{
-        token: string
-        exp: number
-        user: User
-    }>("auth/login", {
+    const response = await http.POST<Token>("auth/login", {
         body: {
             usernameOrEmail, password
         }

@@ -55,17 +55,18 @@ export default function LoginForm() {
 
             if (serverError.code === "ResourceNotFound") {
                 handleInvalidUser()
-                return
+                throw error
             }
 
             modalDialog.open("Error :(", retryDialog(
                 "Lo sentimos. Ha ocurrido un error del servidor. Por favor, reintente en unos minutos."
             ))
+            throw error
         }
     }
 
     return (
-        <div className="w-full h-fit flex flex-col gap-7">
+        <div className="w-full h-fit">
             <FormCarrousel
                 ref={formCarrouselRef}
                 onSubmit={handleSubmit}

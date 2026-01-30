@@ -2,13 +2,14 @@ import Form from "@/src/shared/ui/form/Form"
 import FormField from "@/src/shared/ui/form/FormField"
 import Link from "next/link"
 import { SubmitHandler, useForm } from "react-hook-form"
-import loginPasswordSchema, { LoginPasswordInput } from "../../lib/password.schema"
+import loginPasswordSchema, { LoginPasswordInput } from "../../lib/loginPasswordSchema"
 import Button from "@/src/shared/ui/common/Button"
 import useModalDialog from "@/src/shared/hooks/useModalDialog"
 import useFormCarrousel from "@/src/shared/hooks/useFormCarrousel"
 import retryDialog from "@/src/shared/lib/retryDialog"
 import { forwardRef, useImperativeHandle } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
+import FormButton from "@/src/shared/ui/form/FormButton"
 
 export type LoginPasswordStepHandle = {
     password: () => string
@@ -29,13 +30,6 @@ const LoginPasswordStep = forwardRef<LoginPasswordStepHandle>(
         }))
 
         const handleSubmit: SubmitHandler<LoginPasswordInput> = async () => {
-            const isValidPassword = await form.trigger("password")
-
-            if (!isValidPassword) {
-                handleInvalid()
-                return
-            }
-
             await formCarrousel?.submit()
         }
 
@@ -46,11 +40,12 @@ const LoginPasswordStep = forwardRef<LoginPasswordStepHandle>(
         }
 
         return (
-            <>
+            <div className="w-full h-fit min-h-fit flex flex-col gap-6 justify-center">
                 <Form
                     form={form}
                     onInvalid={handleInvalid}
                     onSubmit={handleSubmit}
+                    className="h-full"
                 >
                     <FormField
                         autoFocus
@@ -60,19 +55,31 @@ const LoginPasswordStep = forwardRef<LoginPasswordStepHandle>(
                         {...form.register("password")}
                     />
                     <nav className="w-full h-fit grid grid-cols-[auto_1fr] gap-6">
-                        <Button onClick={formCarrousel?.prevStep}>Atrás</Button>
-                        <Button
+                        <FormButton
+                            animatePrefixIcon
+                            prefixIcon="ArrowLeft"
+                            onClick={formCarrousel?.prevStep}
+                            disabled={
+                                form.formState.isSubmitting
+                                || form.formState.isSubmitSuccessful
+                            }
+                        >Atrás</FormButton>
+                        <FormButton
                             suffixIcon="Check"
                             variant="primary"
                             type="submit"
-                            disabled={!form.formState.isValid || form.formState.isSubmitting}
+                            disabled={
+                                !form.formState.isValid
+                                || form.formState.isSubmitting
+                                || form.formState.isSubmitSuccessful
+                            }
                         >
                             Ingresar
-                        </Button>
+                        </FormButton>
                     </nav>
                 </Form>
                 <Link href="#" className="text-xs font-semibold underline">Olvidé mi contraseña</Link>
-            </>
+            </div>
         )
     }
 )

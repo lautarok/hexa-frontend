@@ -1,13 +1,13 @@
-import Button from "@/src/shared/ui/common/Button";
 import Form from "@/src/shared/ui/form/Form";
 import FormField from "@/src/shared/ui/form/FormField";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import loginEmailSchema, { LoginEmailInput } from "../../lib/email.schema";
+import loginEmailSchema, { LoginEmailInput } from "../../lib/loginEmailSchema";
 import useFormCarrousel from "@/src/shared/hooks/useFormCarrousel";
 import { forwardRef, useImperativeHandle } from "react";
 import useModalDialog from "@/src/shared/hooks/useModalDialog";
 import retryDialog from "@/src/shared/lib/retryDialog";
+import FormButton from "@/src/shared/ui/form/FormButton";
 
 export type LoginEmailStepHandle = {
     email: () => string
@@ -26,13 +26,6 @@ const LoginEmailStep = forwardRef<LoginEmailStepHandle>(
         }))
 
         const handleSubmit = async () => {
-            const isEmailValid = await form.trigger("email")
-
-            if (!isEmailValid) {
-                handleInvalid()
-                return
-            }
-
             formCarrousel?.nextStep()
         }
 
@@ -47,6 +40,7 @@ const LoginEmailStep = forwardRef<LoginEmailStepHandle>(
                 form={form}
                 onSubmit={handleSubmit}
                 onInvalid={handleInvalid}
+                className="h-full"
             >
                 <FormField
                     label="Nombre de usuario o correo"
@@ -56,7 +50,7 @@ const LoginEmailStep = forwardRef<LoginEmailStepHandle>(
                     disabled={form.formState.isSubmitting}
                     {...form.register("email")}
                 />
-                <Button
+                <FormButton
                     animateSuffixIcon
                     suffixIcon="ArrowRight"
                     variant="primary"
@@ -64,7 +58,7 @@ const LoginEmailStep = forwardRef<LoginEmailStepHandle>(
                     disabled={!form.formState.isValid || form.formState.isSubmitting}
                 >
                     Siguiente
-                </Button>
+                </FormButton>
             </Form>
         )
     }

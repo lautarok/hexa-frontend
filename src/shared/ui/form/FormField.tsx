@@ -12,6 +12,7 @@ export default function FormField({
     disabled,
     autoFocus,
     type = "text",
+    error,
     ref,
     ...props
 }: Record<string, unknown> & {
@@ -21,6 +22,7 @@ export default function FormField({
     disabled?: boolean
     autoFocus?: boolean
     type?: "text" | "password" | "email"
+    error?: string
     ref?: RefCallBack
 }) {
     const IconComponent = icon ? Icon[icon] : undefined
@@ -57,17 +59,25 @@ export default function FormField({
             <span className="leading-[1] text-sm font-semibold">{label}</span>
             <div
                 className={[
-                    "w-full h-14 grid gap-3 border-1 border-white/10 items-center rounded-xl px-4",
+                    "w-full h-14 grid gap-3 border-1 items-center rounded-xl px-4",
                     IconComponent ? "grid-cols-[auto_auto_1fr]" : "grid-cols-[1fr]",
-                    disabled ? "opacity-65" : ""
+                    disabled ? "opacity-65" : "",
+                    error ? "border-red-200" : "border-white/10"
                 ].join(" ")}
             >
                 {
                     IconComponent ? (
-                        <IconComponent size={18} />
+                        <>
+                            <IconComponent size={18} />
+                            <div
+                                className={[
+                                    "w-[1px] h-6",
+                                    error ? "bg-red-200" : "bg-white/10"
+                                ].join(" ")}
+                            ></div>
+                        </>
                     ) : null
                 }
-                <div className="w-[1px] h-6 bg-white/10"></div>
                 <input
                     type={type}
                     placeholder={placeholder}
@@ -82,6 +92,14 @@ export default function FormField({
                         ref?.(event)
                     }}
                 />
+            </div>
+            <div
+                className="overflow-hidden transition-[max-height] ease-in-out duration-250"
+                style={{
+                    maxHeight: error ? "5rem" : "0"
+                }}
+            >
+                <p className="text-red-300 font-semibold text-xs">{error}</p>
             </div>
         </div>
     )

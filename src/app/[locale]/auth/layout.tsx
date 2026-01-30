@@ -48,7 +48,7 @@ export default async function AuthLayout({
                 <nav className="w-fit h-fit flex flex-col gap-3">
                     <div className="w-full h-fit flex justify-center items-center text-xs font-semibold relative">
                         <div className="absolute top-[50%] w-full h-[1px] -translate-y-[50%] bg-white/10"></div>
-                        <span className="bg-[var(--background)] px-2 block z-9 relative">Or</span>
+                        <span className="bg-[var(--background)] px-2 block z-9 relative">O</span>
                     </div>
                     <button className="w-fit h-fit grid grid-cols-[auto_1fr] gap-2 rounded-full bg-white/10 text-sm font-semibold flex items-center p-2 pr-4">
                         <Icon.GoogleFill size={22} />

@@ -5,6 +5,8 @@ export default function Button({
     children,
     suffixIcon,
     animateSuffixIcon,
+    prefixIcon,
+    animatePrefixIcon,
     variant,
     disabled = false,
     type = "button",
@@ -16,6 +18,8 @@ export default function Button({
     children: string
     suffixIcon?: keyof typeof Icon
     animateSuffixIcon?: boolean
+    prefixIcon?: keyof typeof Icon
+    animatePrefixIcon?: boolean
     variant?: "primary" | "ghost"
     disabled?: boolean
     type?: "submit" | "button"
@@ -24,7 +28,8 @@ export default function Button({
     className?: string
     onClick?: () => void
 }) {
-    const SuffixIcon = suffixIcon ? Icon[suffixIcon] : null
+    const SuffixIcon = suffixIcon ? Icon[suffixIcon] : null,
+        PrefixIcon = prefixIcon ? Icon[prefixIcon] : null
 
     return !href ? (
         <button
@@ -33,15 +38,26 @@ export default function Button({
             type={type}
             className={[
                 "font-semibold flex justify-center items-center gap-2 rounded-xl transition-[scale,opacity,transform] duration-200 group",
-                variant !== "ghost" ? "px-4" : "",
+                variant !== "ghost" ? "px-6" : "",
                 variant === "primary" ? "bg-white text-black"
                     : variant === "ghost" ? "text-white/80 hover:-text-white"
                     : "bg-white/5 text-white/90 hover:text-white",
-                disabled ? "opacity-65 cursor-default" : "opacity-90 hover:opacity-100 active:scale-98",
+                disabled ? "opacity-50 cursor-default" : "opacity-90 hover:opacity-100 active:scale-98",
                 size === "md" ? "h-13 text-md" : "h-9 text-sm",
                 className ?? ""
             ].join(" ")}
         >
+            {
+                PrefixIcon && (
+                    <PrefixIcon
+                        strokeWidth={3}
+                        className={[
+                            "size-4",
+                            animatePrefixIcon && !disabled ? "transition-[opacity,transform,translate] opacity-70 group-hover:opacity-100 group-hover:-translate-x-2" : ""
+                        ].join(" ")}
+                     />
+                )
+            }
             <span>{children}</span>
             {
                 SuffixIcon && (

@@ -1,9 +1,10 @@
 "use client"
 
-import React, { forwardRef, useImperativeHandle } from "react";
+import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import useStep from "../../hooks/useStep";
 import FormCarrouselProvider from "../../providers/FormCarrouselProvider";
 import FormCarrouselStepProvider from "../../providers/FormCarrouselStepProvider";
+import FormCarrouselStep from "./FormCarrouselStep";
 
 export type FormCarrouselHandle = {
     step: () => number
@@ -14,9 +15,10 @@ export type FormCarrouselHandle = {
 
 const FormCarrousel = forwardRef<FormCarrouselHandle, {
     items: React.ReactNode[],
+    dynamicHeight?: boolean,
     onSubmit: () => Promise<void>
 }>(
-    ({items, onSubmit}, ref) => {
+    ({items, dynamicHeight, onSubmit}, ref) => {
         const step = useStep(0, items.length - 1)
 
         useImperativeHandle(ref, () => ({
@@ -27,14 +29,17 @@ const FormCarrousel = forwardRef<FormCarrouselHandle, {
         }))
 
         return (
-            <FormCarrouselProvider step={step} onSubmit={onSubmit}>
-                <div className="w-full h-fit flex flex-wrap">
+            <FormCarrouselProvider dynamicHeight={dynamicHeight} step={step} onSubmit={onSubmit}>
+                <div
+                    className="w-full flex flex-wrap transition-height duration-500 h-fit"
+                >
                     <div
-                        className="transition-transform duration-300 ease-in-out grid items-center flex-shrink-0"
+                        className="transition-transform duration-300 ease-in-out grid flex-shrink-0 items-center"
                         style={{
                             width: `${100 * items.length}%`,
                             transform: `translateX(-${(100 / items.length) * step.current}%)`,
-                            gridTemplateColumns: `repeat(${items.length}, 1fr)`
+                            gridTemplateColumns: `repeat(${items.length}, 1fr)`,
+                            transitionDelay: dynamicHeight ? "150ms" : "0"
                         }}
                     >
                         {
@@ -43,16 +48,9 @@ const FormCarrousel = forwardRef<FormCarrouselHandle, {
                                     when={index}
                                     key={index}
                                 >
-                                    <div
-                                        key={index}
-                                        className="w-full h-full transition-opacity duration-200 flex flex-col gap-6 justify-center"
-                                        style={{
-                                            opacity: step.current === index ? 1 : 0,
-                                            pointerEvents: step.current === index ? "all" : "none"
-                                        }}
-                                    >
+                                    <FormCarrouselStep>
                                         {item}
-                                    </div>
+                                    </FormCarrouselStep>
                                 </FormCarrouselStepProvider>
                             ))
                         }

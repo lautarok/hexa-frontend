@@ -47,7 +47,7 @@ export default function MyUserCard() {
                 <DropdownMenuTitle>
                     Mi usuario
                 </DropdownMenuTitle>
-                <div className="w-full min-w-fit relative h-fit flex flex-col items-end border-y-1 border-white/10 p-6 gap-4">
+                <div className="w-full min-w-60 relative h-fit flex flex-col items-end border-y-1 border-white/10 p-6 gap-4">
                     <Avatar
                         name={auth?.user?.name || ""}
                         size="xl"
