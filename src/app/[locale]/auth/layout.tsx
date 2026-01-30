@@ -5,7 +5,7 @@ import IconButton from "@/src/shared/ui/common/IconButton";
 import LocaleSelector from "@/src/shared/ui/layout/LocaleSelector";
 import Link from "next/link";
 import * as Icon from "akar-icons"
-import ActionButton from "@/src/ui/auth/layout/components/ActionButton";
+import ActionButton from "@/src/ui/features/layout/components/ActionButton";
 
 export default async function AuthLayout({
     children,

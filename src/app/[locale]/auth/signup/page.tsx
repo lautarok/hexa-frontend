@@ -1,5 +1,5 @@
 import getTraduction from "@/src/shared/services/getTraduction"
-import SignupForm from "@/src/ui/auth/signup/components/form/SignupForm"
+import SignupForm from "@/src/ui/features/signup/components/form/SignupForm"
 import { Metadata } from "next"
 
 export async function generateMetadata({
