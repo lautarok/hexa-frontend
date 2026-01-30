@@ -1,6 +1,6 @@
 "use client"
 
-import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 import useStep from "../../hooks/useStep";
 import FormCarrouselProvider from "../../providers/FormCarrouselProvider";
 import FormCarrouselStepProvider from "../../providers/FormCarrouselStepProvider";

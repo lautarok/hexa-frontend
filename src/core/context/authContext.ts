@@ -7,7 +7,7 @@ const AuthContext = createContext<{
     token?: string
     user?: User
     set: (token: string, user: User) => void
-    clear: () => void
+    clear: () => Promise<void>
 } | null>(null)
 
 export default AuthContext

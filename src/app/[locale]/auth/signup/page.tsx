@@ -1,17 +1,23 @@
 import getTraduction from "@/src/shared/services/getTraduction"
 import SignupForm from "@/src/ui/auth/signup/components/form/SignupForm"
-import * as Icon from "akar-icons"
+import { Metadata } from "next"
 
-export default async function Signup({
-    params
+export async function generateMetadata({
+  params
 }: {
-    params: Promise<{
-        locale: string
-    }>
-}) {
-    const locale = (await params).locale,
-        traduction = getTraduction(locale)
-    
+  params: Promise<{
+    locale: string
+  }>
+}): Promise<Metadata> {
+  const locale = (await params).locale,
+    traduction = getTraduction(locale)
+
+  return {
+    title: traduction.auth.signup + " | " + traduction.common.appName + " | " + traduction.seo.description
+  }
+}
+
+export default function Signup() {
     return (
         <SignupForm />
     )

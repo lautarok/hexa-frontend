@@ -92,4 +92,6 @@ const SignupNamesStep = forwardRef<SignupNamesStepHandle>(
     }
 )
 
+SignupNamesStep.displayName = "Signup names step"
+
 export default SignupNamesStep

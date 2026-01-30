@@ -104,4 +104,6 @@ const SignupCredentialStep = forwardRef<SignupCredentialStepHandle>(
     }
 )
 
+SignupCredentialStep.displayName = "Signup credential step"
+
 export default SignupCredentialStep

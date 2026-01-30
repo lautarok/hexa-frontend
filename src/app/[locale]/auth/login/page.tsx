@@ -1,6 +1,22 @@
 import getTraduction from "@/src/shared/services/getTraduction"
 import LoginForm from "../../../../ui/auth/login/components/form/LoginForm"
 import * as Icon from "akar-icons"
+import { Metadata } from "next"
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{
+    locale: string
+  }>
+}): Promise<Metadata> {
+  const locale = (await params).locale,
+    traduction = getTraduction(locale)
+
+  return {
+    title: traduction.auth.login + " | " + traduction.common.appName + " | " + traduction.seo.description
+  }
+}
 
 export default async function Login({
     params

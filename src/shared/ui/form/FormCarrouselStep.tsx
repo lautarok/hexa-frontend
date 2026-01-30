@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useRef } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
 import useFormCarrouselStep from "../../hooks/useFormCarrouselStep"
 import useFormCarrousel from "../../hooks/useFormCarrousel"
 
@@ -14,11 +14,13 @@ export default function FormCarrouselStep({
 
     const contentRef = useRef<HTMLDivElement | null>(null)
 
-    const contentHeight = useMemo(() => {
-        if (!contentRef.current) return null
+    const [_height, _setHeight] = useState(0)
+
+    useLayoutEffect(() => {
+        if (!contentRef.current) return
 
         const contentRect = contentRef.current.getBoundingClientRect()
-        return contentRect.height
+        _setHeight(contentRect.height)
     }, [contentRef])
 
     return (
@@ -28,7 +30,7 @@ export default function FormCarrouselStep({
                 opacity: formCarrouselStep?.isCurrent ? 1 : 0,
                 pointerEvents: formCarrouselStep?.isCurrent ? "all" : "none",
                 maxHeight: formCarrouselStep?.isCurrent || !formCarrousel?.dynamicHeight ? (
-                    contentHeight ? contentHeight + "px" : "150vh"
+                    _height ? _height + "px" : "150vh"
                 ) : "0",
                 transition: [
                     "opacity ease-in-out .3s",

@@ -9,9 +9,14 @@ import DropdownMenuButton from "../dropdown/DropdownMenuButton"
 import DropdownMenuTitle from "../dropdown/DropdownMenuTitle"
 import * as Icon from "akar-icons"
 import DropdownMenuLink from "../dropdown/DropdownMenuLink"
+import { useParams, useRouter } from "next/navigation"
 
 export default function MyUserCard() {
-    const auth = useAuth()
+    const auth = useAuth(),
+        router = useRouter(),
+        {locale} = useParams<{
+            locale: string
+        }>()
 
     const [_dropdownIsOpen, _setDropdownIsOpen] = useState(false)
 
@@ -70,7 +75,10 @@ export default function MyUserCard() {
                     Mi billetera
                 </DropdownMenuLink>
                 <DropdownMenuButton
-                    onClick={auth?.clear}
+                    onClick={async () => {
+                        await auth?.clear()
+                        router.push(`/${locale}/auth/login`)
+                    }}
                     suffixIcon="Door"
                 >
                     Cerrar sesión

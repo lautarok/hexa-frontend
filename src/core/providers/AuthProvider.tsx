@@ -31,8 +31,8 @@ export default function AuthProvider({
                     handleSetToken(token)
                     _setUser(user)
                 },
-                clear() {
-                    handleSetToken(undefined)
+                async clear() {
+                    await handleSetToken(undefined)
                     _setUser(undefined)
                 }
             }}

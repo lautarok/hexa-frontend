@@ -50,8 +50,10 @@ export default async function AuthLayout({
                         <div className="absolute top-[50%] w-full h-[1px] -translate-y-[50%] bg-white/10"></div>
                         <span className="bg-[var(--background)] px-2 block z-9 relative">O</span>
                     </div>
-                    <button className="w-fit h-fit grid grid-cols-[auto_1fr] gap-2 rounded-full bg-white/10 text-sm font-semibold flex items-center p-2 pr-4">
-                        <Icon.GoogleFill size={22} />
+                    <button className="w-fit h-fit grid grid-cols-[auto_1fr] gap-2 rounded-full text-black text-md font-semibold flex items-center p-2 pr-4 hover:scale-102 duration-200 active:scale-98 transition-scale origin-center" style={{
+                        background: "linear-gradient(45deg, #ffd54f, #f48fb1, #80deea)"
+                    }}>
+                        <Icon.GoogleFill className="size-6" />
                         <span>Ingresar con Google</span>
                     </button>
                 </nav>
