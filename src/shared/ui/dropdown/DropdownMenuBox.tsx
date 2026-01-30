@@ -34,7 +34,7 @@ export default function DropdownMenuBox({
                     menuTop = (menuRect.top - 25) * scalingFactor,
                     menuBottom = (menuRect.bottom + 25) * scalingFactor
 
-                if (menuRect.height > window.innerHeight / 1.6) return
+                if (menuBottom - menuTop > window.innerHeight / 1.6) return
 
                 if (menuBottom > window.innerHeight) {
                     _setBottom(true)
