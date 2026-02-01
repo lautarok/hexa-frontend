@@ -25,7 +25,7 @@ export default function MyUserCard() {
             hideChevron
             onChange={_setDropdownIsOpen}
             label={
-                <div className="w-fit h-fit p-3 pr-5 rounded-2xl bg-white/10 grid grid-cols-[auto_1fr_auto] gap-5 items-center">
+                <div className="w-fit h-fit p-3 pr-5 rounded-2xl bg-white/10 grid grid-cols-[auto_1fr_auto] gap-5 items-center border-1 border-white/10 opacity-75 hover:opacity-100 transition-opacity">
                     <Avatar name={auth?.user?.name || ""} />
                     <div className="w-full h-fit gap-1 text-sm flex flex-col text-left">
                         <span className="text-md leading-[1] font-semibold">

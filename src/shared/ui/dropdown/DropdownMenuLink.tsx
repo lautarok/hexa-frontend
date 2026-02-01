@@ -22,7 +22,7 @@ export default function DropdownMenuLink({
             href={href || ""}
             onClick={() => {dropdownMenu.set(false)}}
             className={[
-                "w-full h-full text-left rounded-xl px-3 py-2 text-md hover:bg-white/10 flex items-center gap-3",
+                "w-full h-full text-left rounded-xl px-3 py-2 text-md hover:bg-white/10 flex items-center gap-3 transition-colors",
                 className
             ].join(" ")}
         >

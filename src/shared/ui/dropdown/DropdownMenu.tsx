@@ -25,7 +25,7 @@ export default function DropdownMenu({
         <div>
             <DropdownMenuProvider onOpenChange={_setIsOpen} isOpen={_isOpen}>
                 <div className="relative w-fit h-fit z-9999 select-none">
-                    <button onClick={() => _setIsOpen(true)} className="w-fit h-fit flex items-center gap-1 transition-[scale,transform,opacity] hover:opacity-100 opacity-85 active:scale-98">
+                    <button onClick={() => _setIsOpen(true)} className="w-fit h-fit flex items-center gap-1 transition-[scale,transform,opacity] active:scale-98">
                         {label}
                         {
                             !hideChevron && <Icon.ChevronDown className="size-3" />

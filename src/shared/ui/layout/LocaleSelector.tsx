@@ -34,7 +34,7 @@ export default function LocaleSelector({
                 }
                 <span
                     className={[
-                        discrete ? "opacity-70 transition-opacity hover:opacity-100" : ""
+                        discrete ? "opacity-75 transition-opacity hover:opacity-100" : ""
                     ].join(" ")}
                 >{traduction.language.currentLocale}</span>
             </div>

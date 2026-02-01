@@ -25,7 +25,7 @@ export default function IconButton({
             aria-label={label}
             onClick={onClick}
             className={[
-                "w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center",
+                "w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center transition-[opacity,scale,transform,background-color] opacity-75 hover:opacity-100 active:scale-98 hover:scale-101",
                 className
             ].join(" ")}
         >
@@ -37,7 +37,7 @@ export default function IconButton({
             onClick={onClick}
             type="button"
             className={[
-                "w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center",
+                "w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center transition-[opacity,scale,transform,background-color] opacity-75 hover:opacity-100 active:scale-98 hover:scale-101",
                 className
             ].join(" ")}
         >

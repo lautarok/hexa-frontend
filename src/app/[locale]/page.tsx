@@ -1,7 +1,11 @@
 import Footer from "@/src/shared/ui/layout/Footer";
 import Header from "@/src/shared/ui/layout/Header";
-import LocaleSelector from "@/src/shared/ui/layout/LocaleSelector";
 import getTraduction from "@/src/shared/services/getTraduction";
+import HomeSearcher from "@/src/features/home/search/components/HomeSearcher";
+import Button from "@/src/shared/ui/common/Button";
+import HomeWelcome from "@/src/features/home/hero/components/HomeWelcome";
+import HomeAuthorizationMessage from "@/src/features/home/hero/components/HomeAuthorizationMessage";
+import HomeFilters from "@/src/features/home/search/components/HomeFilters";
 
 export default async function Home({
   params
@@ -17,10 +21,15 @@ export default async function Home({
     <>
       <Header traduction={traduction} locale={locale} />
       <main>
-        <section className="w-full h-fit min-h-[calc(100dvh-6rem)] pb-10 flex items-center justify-center text-center flex-col">
-          <h1 className="text-3xl font-bold">{traduction.home.heroTitle}</h1>
-          <p className="text-xl mb-4">{traduction.home.heroDescription}</p>
-          <LocaleSelector boxAlignmentX="center" traduction={traduction} />
+        <section className="w-full h-fit min-h-[calc(100dvh-6rem)] pb-10 flex items-center text-center flex-col gap-10">
+          <div className="w-full h-fit flex flex-col">
+            <HomeWelcome />
+            <HomeAuthorizationMessage />
+          </div>
+          <nav className="w-full h-fit flex flex-col gap-4 py-10 container-x-padding justify-center items-center">
+            <HomeSearcher />
+            <HomeFilters />
+          </nav>
         </section>
       </main>
       <Footer traduction={traduction} locale={locale} />

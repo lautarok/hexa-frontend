@@ -82,8 +82,8 @@ export default function DropdownMenuBox({
                     : "right-0",
                 _bottom && !outter ? "bottom-0 origin-bottom"
                     : !_bottom && !outter ? "-top-2 origin-top"
-                    : _bottom && outter ? "bottom-[calc(100%+1rem)]"
-                    : "top-[calc(100%+1rem)]",
+                    : _bottom && outter ? "bottom-[calc(100%+0.5rem)]"
+                    : "top-[calc(100%+0.5rem)]",
                 _bottom && alignmentX === "left" ? "!origin-bottom-left"
                     : _bottom && alignmentX === "right" ? "!origin-bottom-right"
                     : !_bottom && alignmentX === "left" ? "!origin-top-left"
