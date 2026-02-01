@@ -11,8 +11,8 @@ import * as Icon from "akar-icons"
 import FormButton from "@/src/shared/ui/form/FormButton"
 
 export type SignupCredentialStepHandle = {
-    email: () => string,
-    password: () => string,
+    email: () => string
+    password: () => string
     repeatPassword: () => string
 }
 

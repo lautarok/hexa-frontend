@@ -1,6 +1,6 @@
 "use client"
 
-import FormCarrousel from "@/src/shared/ui/form/FormCarrousel"
+import FormCarrousel, { FormCarrouselHandle } from "@/src/shared/ui/form/FormCarrousel"
 import { useRef } from "react"
 import SignupNamesStep, { SignupNamesStepHandle } from "./SignupNamesStep"
 import SignupCredentialStep, { SignupCredentialStepHandle } from "./SignupCredentialStep"
@@ -18,7 +18,8 @@ export default function SignupForm() {
         router = useRouter(),
         {locale} = useParams<{locale: string}>()
 
-    const signupNamesStepRef = useRef<SignupNamesStepHandle | null>(null),
+    const formCarrouselRef = useRef<FormCarrouselHandle | null>(null),
+        signupNamesStepRef = useRef<SignupNamesStepHandle | null>(null),
         signupCredentialStepRef = useRef<SignupCredentialStepHandle | null>(null),
         signupUsernameStepRef = useRef<SignupUsernameStepHandle | null>(null)
 
@@ -27,6 +28,7 @@ export default function SignupForm() {
             !signupNamesStepRef.current
             || !signupCredentialStepRef.current
             || !signupUsernameStepRef.current
+            || !formCarrouselRef.current
             || !auth
             || auth.token
         ) {
@@ -50,8 +52,7 @@ export default function SignupForm() {
             const serverError = error as ServerError
 
             if (serverError.code === "AlreadyExists") {
-                if (serverError.message.includes("username")) {
-                    alert(serverError.message)
+                if (serverError.message.toLowerCase().includes("username")) {
                     modalDialog.open("Nombre de usuario", retryDialog(
                         "El nombre de usuario ya está en uso por otra persona"
                     ))
@@ -59,9 +60,10 @@ export default function SignupForm() {
                     return
                 }
 
-                modalDialog.open("Nombre de usuario", retryDialog(
+                modalDialog.open("Correo electrónico", retryDialog(
                     "El correo electrónico ya está en uso por otra persona"
                 ))
+                formCarrouselRef.current.setStep(1)
                 signupUsernameStepRef.current.setGeneralError(serverError.message)
             }
         }
@@ -71,6 +73,7 @@ export default function SignupForm() {
         <div className="w-full h-fit">
             <FormCarrousel
                 dynamicHeight
+                ref={formCarrouselRef}
                 onSubmit={handleSubmit}
                 items={[
                     <SignupNamesStep ref={signupNamesStepRef} key={1} />,
