@@ -10,6 +10,7 @@ import FormField from "@/src/shared/ui/form/FormField"
 
 export type SignupUsernameStepHandle = {
     username: () => string
+    setGeneralError: (message?: string) => void
 }
 
 const SignupUsernameStep = forwardRef<SignupUsernameStepHandle>(
@@ -21,7 +22,11 @@ const SignupUsernameStep = forwardRef<SignupUsernameStepHandle>(
         const formCarrousel = useFormCarrousel()
 
         useImperativeHandle(ref, () => ({
-            username: () => form.getValues("username")
+            username: () => form.getValues("username"),
+            setGeneralError: message => form.setError("root.generalError", {
+                message,
+                type: "manual"
+            })
         }))
 
         return (

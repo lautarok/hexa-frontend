@@ -41,7 +41,8 @@ export default function Button({
                 variant !== "ghost" ? "px-6" : "",
                 variant === "primary" ? "bg-white text-black"
                     : variant === "ghost" ? "text-white/80 hover:-text-white"
-                    : "bg-white/5 text-white/90 hover:text-white",
+                    : "bg-white/5 text-white/90",
+                variant === "ghost" && !disabled ? "hover:text-white" : "",
                 disabled ? "opacity-50 cursor-default" : "opacity-90 hover:opacity-100 active:scale-98",
                 size === "md" ? "h-13 text-md" : "h-9 text-sm",
                 className ?? ""
@@ -81,7 +82,8 @@ export default function Button({
                 variant !== "ghost" ? "px-4" : "",
                 variant === "primary" ? "bg-white text-black"
                     : variant === "ghost" ? "text-white/80 hover:-text-white"
-                    : "bg-white/5 text-white/90 hover:text-white",
+                    : "bg-white/5 text-white/90",
+                variant === "ghost" && !disabled ? "hover:text-white" : "",
                 disabled ? "opacity-65 cursor-default" : "opacity-90 hover:opacity-100 active:scale-98",
                 size === "md" ? "h-13 text-md" : "h-9 text-sm",
                 className ?? ""

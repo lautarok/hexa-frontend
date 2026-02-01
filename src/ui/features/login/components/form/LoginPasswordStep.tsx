@@ -13,6 +13,7 @@ import FormButton from "@/src/shared/ui/form/FormButton"
 export type LoginPasswordStepHandle = {
     password: () => string
     reset: () => void
+    setGeneralError: (message?: string) => void
 }
 
 const LoginPasswordStep = forwardRef<LoginPasswordStepHandle>(
@@ -25,7 +26,11 @@ const LoginPasswordStep = forwardRef<LoginPasswordStepHandle>(
 
         useImperativeHandle(ref, () => ({
             password: () => form.getValues("password"),
-            reset: () => form.reset()
+            reset: () => form.reset(),
+            setGeneralError: message => form.setError("root.generalError", {
+                message,
+                type: "manual"
+            })
         }))
 
         const handleSubmit: SubmitHandler<LoginPasswordInput> = async () => {

@@ -55,13 +55,15 @@ export default function LoginForm() {
 
             if (serverError.code === "ResourceNotFound") {
                 handleInvalidUser()
-                throw error
+                loginPasswordStepRef.current.setGeneralError(serverError.message)
+                return
             }
 
             modalDialog.open("Error :(", retryDialog(
                 "Lo sentimos. Ha ocurrido un error del servidor. Por favor, reintente en unos minutos."
             ))
-            throw error
+            loginPasswordStepRef.current.setGeneralError(serverError.message)
+            return
         }
     }
 

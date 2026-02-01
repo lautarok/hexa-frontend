@@ -51,16 +51,18 @@ export default function SignupForm() {
 
             if (serverError.code === "AlreadyExists") {
                 if (serverError.message.includes("username")) {
+                    alert(serverError.message)
                     modalDialog.open("Nombre de usuario", retryDialog(
                         "El nombre de usuario ya está en uso por otra persona"
                     ))
-                    throw error
+                    signupUsernameStepRef.current.setGeneralError(serverError.message)
+                    return
                 }
 
                 modalDialog.open("Nombre de usuario", retryDialog(
                     "El correo electrónico ya está en uso por otra persona"
                 ))
-                throw error
+                signupUsernameStepRef.current.setGeneralError(serverError.message)
             }
         }
     }
