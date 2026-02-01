@@ -18,7 +18,7 @@ export default function Header({
     const auth = useAuth()
 
     return (
-        <header className="w-full h-24 container-x-padding flex items-center justify-between">
+        <header className="w-full h-24 container-x-padding flex items-center justify-between fixed top-0 left-0 backdrop-blur-xl z-999999">
             <Link href={`/${locale}`} className="w-fit h-fit flex items-center gap-4">
                 <Image
                     alt={traduction.header.iconAlt}

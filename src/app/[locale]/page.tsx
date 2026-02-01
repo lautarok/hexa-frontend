@@ -21,10 +21,10 @@ export default async function Home({
     <>
       <Header traduction={traduction} locale={locale} />
       <main>
-        <section className="w-full h-fit min-h-[calc(100dvh-6rem)] pb-10 flex items-center text-center flex-col gap-10">
+        <section className="w-full h-fit min-h-screen pb-15 pt-24 flex items-center text-center flex-col gap-10">
           <div className="w-full h-fit flex flex-col">
-            <HomeWelcome />
             <HomeAuthorizationMessage />
+            <HomeWelcome />
           </div>
           <nav className="w-full h-fit flex flex-col gap-10 py-10 container-x-padding justify-center items-center">
             <HomeSearcher />

@@ -1,7 +1,7 @@
 "use client"
 
 import * as Icon from "akar-icons"
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useMemo, useRef } from "react"
 import { RefCallBack } from "react-hook-form"
 import useFormCarrouselStep from "../../hooks/useFormCarrouselStep"
 
@@ -36,6 +36,10 @@ export default function FormField({
         inputRef.current?.focus({preventScroll: true})
     }, [inputRef])
 
+    const isCurrent = useMemo(() =>
+        !!formCarrouselStep?.isCurrent 
+    , [formCarrouselStep])
+
     useEffect(() => {
         if (!fieldRef.current || !inputRef.current) return
 
@@ -49,10 +53,10 @@ export default function FormField({
     }, [fieldRef, handleFocus])
 
     useEffect(() => {
-        if (autoFocus && formCarrouselStep?.isCurrent) {
+        if (autoFocus && isCurrent) {
             handleFocus()
         }
-    }, [autoFocus, formCarrouselStep, handleFocus])
+    }, [handleFocus, isCurrent, autoFocus])
 
     return (
         <div ref={fieldRef} className="w-full cursor-default h-fit flex flex-col gap-4 select-none">

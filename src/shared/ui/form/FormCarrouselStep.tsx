@@ -25,7 +25,7 @@ export default function FormCarrouselStep({
 
     return (
         <div
-            className="w-full h-fit flex flex-wrap"
+            className="w-full h-fit flex flex-wrap overflow-hidden"
             style={{
                 opacity: formCarrouselStep?.isCurrent ? 1 : 0,
                 pointerEvents: formCarrouselStep?.isCurrent ? "all" : "none",
