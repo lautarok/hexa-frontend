@@ -65,7 +65,14 @@ export default function SignupForm() {
                 ))
                 formCarrouselRef.current.setStep(1)
                 signupUsernameStepRef.current.setGeneralError(serverError.message)
+                return
             }
+
+            modalDialog.open("Error :(", retryDialog(
+                "Lo sentimos. Ha ocurrido un error del servidor. Por favor, reintente en unos minutos."
+            ))
+            signupUsernameStepRef.current.setGeneralError(serverError.message)
+            return
         }
     }
 

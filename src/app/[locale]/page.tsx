@@ -26,7 +26,7 @@ export default async function Home({
             <HomeWelcome />
             <HomeAuthorizationMessage />
           </div>
-          <nav className="w-full h-fit flex flex-col gap-4 py-10 container-x-padding justify-center items-center">
+          <nav className="w-full h-fit flex flex-col gap-10 py-10 container-x-padding justify-center items-center">
             <HomeSearcher />
             <HomeFilters />
           </nav>

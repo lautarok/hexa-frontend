@@ -57,6 +57,11 @@ export default function MyUserCard() {
                         name={auth?.user?.name || ""}
                         size="xl"
                     />
+                    {
+                        auth?.isAdmin && (
+                            <span className="text-xs text-black bg-cyan-100 rounded-full px-2 py-1 font-semibold">Administrador</span>
+                        )
+                    }
                     <div className="flex w-fit flex-col text-right text-sm items-end gap-2">
                         <span className="text-md font-semibold leading-[1] whitespace-nowrap">{auth?.user?.name} {auth?.user?.surname}</span>
                         <span className="font-semibold leading-[1]">@{auth?.user?.credential?.username}</span>
