@@ -47,7 +47,8 @@ export default function LoginForm() {
                 password: loginPasswordStepRef.current.password()
             })
 
-            auth.set(response.token, response.user)
+            auth.set(response.user)
+            await auth.setToken(response.token)
 
             router.push(`/${params.locale}/`)
         } catch (error) {

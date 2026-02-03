@@ -45,7 +45,8 @@ export default function SignupForm() {
                 username: signupUsernameStepRef.current.username()
             })
 
-            auth.set(response.token, response.user)
+            auth.set(response.user)
+            await auth.setToken(response.token)
             
             router.push(`/${locale}/`)
         } catch (error) {

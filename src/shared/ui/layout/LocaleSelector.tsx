@@ -1,6 +1,6 @@
 "use client"
 
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import getTraduction from "../../services/getTraduction";
 import * as Icon from "akar-icons"
 import { useMemo } from "react";
@@ -10,15 +10,17 @@ import DropdownMenuLink from "../dropdown/DropdownMenuLink";
 import DropdownMenuBox from "../dropdown/DropdownMenuBox";
 
 export default function LocaleSelector({
-    traduction,
     boxAlignmentX = "right",
     discrete = false
 }: {
-    traduction: ReturnType<typeof getTraduction>
     boxAlignmentX?: "center" | "left" | "right"
     discrete?: boolean
 }) {
-    const pathname = usePathname()
+    const pathname = usePathname(),
+        params = useParams<{
+            locale: string
+        }>(),
+        traduction = getTraduction(params.locale)
 
     const pathnameSuffix = useMemo(() => {
         return pathname.split("/").filter(Boolean).slice(1).join("/")

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const PROTECTED_ROUTES = ["/dashboard"]
+const PROTECTED_ROUTES = ["/user"]
 const ONLY_GUEST_ROUTES = ["/auth"]
 
 export default function AppMiddleware(req: NextRequest) {

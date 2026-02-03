@@ -32,7 +32,9 @@ const apiCall = async <TResponse>(
         return cacheMap.get(path) as TResponse
     }
 
-    const httpResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${path}`, {
+    const searchParams = new URLSearchParams(options?.searchParams)
+
+    const httpResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${path}?${searchParams.toString()}`, {
         method: options?.method ?? "GET",
         body: options?.body ? JSON.stringify(options.body) : undefined,
         headers: options?.headers

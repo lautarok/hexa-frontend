@@ -1,5 +1,5 @@
 import getTraduction from "@/src/shared/services/getTraduction"
-import LoginForm from "../../../../features/auth/login/components/form/LoginForm"
+import LoginForm from "../../../../../features/auth/login/components/form/LoginForm"
 import * as Icon from "akar-icons"
 import { Metadata } from "next"
 

@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google"
 import getTraduction from "../../shared/services/getTraduction";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
-import ModalDialog from "@/src/core/components/ModalDialog";
 import AppProviders from "./providers";
 
 const poppins = Poppins({
@@ -39,7 +38,13 @@ export default async function RootLayout({
   const locale = (await params).locale,
     traduction = getTraduction(locale)
 
-  if (!traduction) {
+  if (!traduction || (
+    locale !== "en"
+    && locale !== "es"
+    && locale !== "fr"
+    && locale !== "pt"
+    && locale !== "nl"
+  )) {
     redirect("/es")
   }
 
@@ -50,7 +55,6 @@ export default async function RootLayout({
       >
         <AppProviders>
           {children}
-          <ModalDialog />
         </AppProviders>
       </body>
     </html>

@@ -1,16 +1,18 @@
+"use client"
+
 import Image from "next/image";
 import getTraduction from "../../services/getTraduction";
 import SpecialIcon from "@/public/images/icon.png"
 import Link from "next/link";
 import LocaleSelector from "./LocaleSelector";
+import { useParams } from "next/navigation";
 
-export default async function Footer({
-    traduction,
-    locale
-}: {
-    traduction: ReturnType<typeof getTraduction>,
-    locale: string
-}) {
+export default function Footer() {
+    const {locale} = useParams<{
+        locale: string
+    }>(),
+    traduction = getTraduction(locale)
+
     return (
         <footer className="w-full h-fit container-x-padding py-10 bg-black">
             <div className="w-fit relative max-w-full grid grid-cols-[218px_auto] gap-10 mx-auto">
@@ -28,7 +30,7 @@ export default async function Footer({
                             <p className="text-sm">{traduction.footer.platform}</p>
                         </li>
                         <li>
-                            <LocaleSelector discrete boxAlignmentX="center" traduction={traduction} />
+                            <LocaleSelector discrete boxAlignmentX="center" />
                         </li>
                         <li>
                             <Link href="#" className="opacity-75 hover:opacity-100 transition-opacity">{traduction.faqs.name}</Link>

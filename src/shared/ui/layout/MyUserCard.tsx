@@ -74,7 +74,7 @@ export default function MyUserCard() {
                     Ver mi perfil
                 </DropdownMenuLink>
                 <DropdownMenuLink
-                    href="#"
+                    href={`/${locale}/user/payments`}
                     suffixIcon="CreditCardAlt1"
                 >
                     Mi billetera

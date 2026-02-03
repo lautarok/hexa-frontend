@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from "react"
 import AuthContext from "../context/authContext"
 import User from "@/src/shared/types/user"
-import setTokenCookie from "@/src/shared/services/setTokenCookie"
+import setTokenCookie from "@/src/features/auth/services/setTokenCookie"
 
 export default function AuthProvider({
     token,
@@ -32,9 +32,11 @@ export default function AuthProvider({
                 token: _token,
                 user: _user,
                 isAdmin: isAdmin,
-                set(token, user) {
-                    handleSetToken(token)
+                set(user) {
                     _setUser(user)
+                },
+                setToken(token) {
+                    return handleSetToken(token)
                 },
                 async clear() {
                     await handleSetToken(undefined)

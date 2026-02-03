@@ -7,15 +7,14 @@ import Link from "next/link";
 import useAuth from "../../hooks/useAuth";
 import MyUserCard from "./MyUserCard";
 import Button from "../common/Button";
+import { useParams } from "next/navigation";
 
-export default function Header({
-    locale,
-    traduction
-}: {
-    locale: string,
-    traduction: ReturnType<typeof getTraduction>
-}) {
-    const auth = useAuth()
+export default function Header() {
+    const auth = useAuth(),
+        {locale} = useParams<{
+            locale: string
+        }>(),
+        traduction = getTraduction(locale)
 
     return (
         <header className="w-full h-24 container-x-padding flex items-center justify-between fixed top-0 left-0 backdrop-blur-xl z-999999">

@@ -4,8 +4,8 @@ import AppIcon from "@/public/images/icon.png"
 import IconButton from "@/src/shared/ui/common/IconButton";
 import LocaleSelector from "@/src/shared/ui/layout/LocaleSelector";
 import Link from "next/link";
-import * as Icon from "akar-icons"
 import ActionButton from "@/src/features/layout/components/ActionButton";
+import GoogleSignOnButton from "@/src/features/auth/layout/components/GoogleSignOnButton";
 
 export default async function AuthLayout({
     children,
@@ -50,16 +50,11 @@ export default async function AuthLayout({
                         <div className="absolute top-[50%] w-full h-[1px] -translate-y-[50%] bg-white/10"></div>
                         <span className="bg-[var(--background)] px-2 block z-9 relative">O</span>
                     </div>
-                    <button className="w-fit h-fit grid grid-cols-[auto_1fr] gap-2 rounded-full text-black text-md font-semibold flex items-center p-2 pr-4 hover:scale-102 duration-200 active:scale-98 transition-scale origin-center" style={{
-                        background: "linear-gradient(45deg, #ffd54f, #f48fb1, #80deea)"
-                    }}>
-                        <Icon.GoogleFill className="size-6" />
-                        <span>Ingresar con Google</span>
-                    </button>
+                    <GoogleSignOnButton locale={locale} />
                 </nav>
             </main>
             <aside className="w-fit h-fit m-auto">
-                <LocaleSelector boxAlignmentX="center" traduction={traduction} />
+                <LocaleSelector boxAlignmentX="center" />
             </aside>
         </div>
     )

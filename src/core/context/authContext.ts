@@ -7,7 +7,8 @@ const AuthContext = createContext<{
     token?: string
     user?: User
     isAdmin?: boolean
-    set: (token: string, user: User) => void
+    set: (user: User) => void
+    setToken: (token: string) => Promise<void>
     clear: () => Promise<void>
 } | null>(null)
 

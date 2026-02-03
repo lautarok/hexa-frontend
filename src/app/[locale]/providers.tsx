@@ -1,5 +1,6 @@
 "use server"
 
+import ModalDialog from "@/src/core/components/ModalDialog";
 import AuthProvider from "@/src/core/providers/AuthProvider";
 import ModalDialogProvider from "@/src/core/providers/ModalDialogProvider";
 import getAuth from "@/src/core/services/getAuth";
@@ -17,6 +18,7 @@ export default async function AppProviders({
             <AuthProvider user={auth?.user} token={auth?.token}>
                 {children}
             </AuthProvider>
+            <ModalDialog />
         </ModalDialogProvider>
     )
 }
