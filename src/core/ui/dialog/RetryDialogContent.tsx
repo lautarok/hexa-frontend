@@ -1,7 +1,7 @@
 "use client"
 
+import Button from "@/src/shared/ui/common/Button"
 import useModalDialog from "../../hooks/useModalDialog"
-import Button from "../common/Button"
 
 export default function RetryDialogContent({
     children

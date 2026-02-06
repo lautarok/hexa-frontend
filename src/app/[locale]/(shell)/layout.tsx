@@ -1,14 +1,10 @@
 import Footer from "@/src/shared/ui/layout/Footer"
 import Header from "@/src/shared/ui/layout/Header"
 
-export default async function CommonLayout({
-    params,
+export default async function ShellLayout({
     children
 }: {
-    params: Promise<{
-        locale: string
-    }>,
-    children: React.ReactNode
+    children?: React.ReactNode
 }) {
     return (
         <>

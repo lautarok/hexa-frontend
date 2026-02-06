@@ -1,4 +1,4 @@
-import http from "@/src/shared/services/http";
+import * as http from "@/src/shared/services/http";
 import Url from "@/src/shared/types/url";
 
 export default function getGoogleSignOnUrl({

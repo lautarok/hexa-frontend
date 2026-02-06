@@ -4,7 +4,7 @@ import Image from "next/image";
 import getTraduction from "../../services/getTraduction";
 import AppIcon from "@/public/images/icon.png"
 import Link from "next/link";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../core/hooks/useAuth";
 import MyUserCard from "./MyUserCard";
 import Button from "../common/Button";
 import { useParams } from "next/navigation";

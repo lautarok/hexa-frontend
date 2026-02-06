@@ -4,11 +4,11 @@ import FormCarrousel, { FormCarrouselHandle } from "@/src/shared/ui/form/FormCar
 import LoginEmailStep, { LoginEmailStepHandle } from "./LoginEmailStep"
 import LoginPasswordStep, { LoginPasswordStepHandle } from "./LoginPasswordStep"
 import { login } from "../../services/loginService"
-import ServerError from "@/src/shared/types/serverError"
-import useModalDialog from "@/src/shared/hooks/useModalDialog"
+import ServerError from "@/src/core/types/serverError"
+import useModalDialog from "@/src/core/hooks/useModalDialog"
 import { useRef } from "react"
 import retryDialog from "@/src/shared/lib/retryDialog"
-import useAuth from "@/src/shared/hooks/useAuth"
+import useAuth from "@/src/core/hooks/useAuth"
 import { useParams, useRouter } from "next/navigation"
 
 export default function LoginForm() {
@@ -47,8 +47,7 @@ export default function LoginForm() {
                 password: loginPasswordStepRef.current.password()
             })
 
-            auth.set(response.user)
-            await auth.setToken(response.token)
+            await auth.set(response.token, response.user)
 
             router.push(`/${params.locale}/`)
         } catch (error) {

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import IconButton from "@/src/shared/ui/common/IconButton"
-import useModalDialog from "@/src/shared/hooks/useModalDialog"
+import useModalDialog from "@/src/core/hooks/useModalDialog"
 
 export default function ModalDialog() {
     const {

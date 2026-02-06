@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import loginEmailSchema, { LoginEmailInput } from "../../lib/loginEmailSchema";
 import useFormCarrousel from "@/src/shared/hooks/useFormCarrousel";
 import { forwardRef, useImperativeHandle } from "react";
-import useModalDialog from "@/src/shared/hooks/useModalDialog";
+import useModalDialog from "@/src/core/hooks/useModalDialog";
 import retryDialog from "@/src/shared/lib/retryDialog";
 import FormButton from "@/src/shared/ui/form/FormButton";
 

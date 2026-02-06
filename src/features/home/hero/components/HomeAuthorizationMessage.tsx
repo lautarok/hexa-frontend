@@ -1,6 +1,6 @@
 "use client"
 
-import useAuth from "@/src/shared/hooks/useAuth"
+import useAuth from "@/src/core/hooks/useAuth"
 import getTraduction from "@/src/shared/services/getTraduction"
 import * as Icon from "akar-icons"
 import { useParams } from "next/navigation"

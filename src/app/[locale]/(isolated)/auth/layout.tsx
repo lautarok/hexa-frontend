@@ -1,10 +1,12 @@
+"use server"
+
 import getTraduction from "@/src/shared/services/getTraduction";
 import Image from "next/image";
 import AppIcon from "@/public/images/icon.png"
 import IconButton from "@/src/shared/ui/common/IconButton";
 import LocaleSelector from "@/src/shared/ui/layout/LocaleSelector";
 import Link from "next/link";
-import ActionButton from "@/src/features/layout/components/ActionButton";
+import ActionButton from "@/src/shared/ui/layout/ActionButton";
 import GoogleSignOnButton from "@/src/features/auth/layout/components/GoogleSignOnButton";
 
 export default async function AuthLayout({
@@ -20,7 +22,7 @@ export default async function AuthLayout({
         traduction = getTraduction(locale)
 
     return (
-        <div className="min-h-screen grid grid-cols-1 grid-rows-[6rem_1fr_6rem]">
+        <div className="min-h-screen grid grid-cols-1 grid-rows-[6rem_1fr_6rem] items-center">
             <div className="w-full h-fit container-x-padding my-auto grid grid-cols-[1fr_1fr_1fr] items-center gap-10">
                 <Link href={`/${locale}/`} className="w-fit h-fit flex items-center gap-1">
                     <IconButton

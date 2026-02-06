@@ -6,9 +6,9 @@ import SignupNamesStep, { SignupNamesStepHandle } from "./SignupNamesStep"
 import SignupCredentialStep, { SignupCredentialStepHandle } from "./SignupCredentialStep"
 import SignupUsernameStep, { SignupUsernameStepHandle } from "./SignupUsernameStep"
 import signup from "../../services/signupService"
-import useAuth from "@/src/shared/hooks/useAuth"
-import ServerError from "@/src/shared/types/serverError"
-import useModalDialog from "@/src/shared/hooks/useModalDialog"
+import useAuth from "@/src/core/hooks/useAuth"
+import ServerError from "@/src/core/types/serverError"
+import useModalDialog from "@/src/core/hooks/useModalDialog"
 import retryDialog from "@/src/shared/lib/retryDialog"
 import { useParams, useRouter } from "next/navigation"
 
@@ -45,8 +45,7 @@ export default function SignupForm() {
                 username: signupUsernameStepRef.current.username()
             })
 
-            auth.set(response.user)
-            await auth.setToken(response.token)
+            await auth.set(response.token, response.user)
             
             router.push(`/${locale}/`)
         } catch (error) {

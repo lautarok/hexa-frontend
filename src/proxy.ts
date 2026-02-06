@@ -1,26 +1,21 @@
-import { NextRequest, NextResponse } from "next/server";
+import "server-only"
 
-const PROTECTED_ROUTES = ["/user"]
-const ONLY_GUEST_ROUTES = ["/auth"]
+import type { NextRequest } from 'next/server'
+import runGuards from "./core/guards/runGuards"
+import hasUsernameGuard from "./core/guards/hasUsernameGuard"
+import authGuard from "./core/guards/authGuard"
+import emptyUsernameGuard from "./core/guards/emptyUsernameGuard"
+import guestGuard from "./core/guards/guestGuard"
 
-export default function AppMiddleware(req: NextRequest) {
-    const token = req.cookies.get("auth_token")?.value,
-        url = req.nextUrl.clone(),
-        urlSegments = url.pathname.split("/"),
-        lang = urlSegments[1],
-        path = "/" + urlSegments.slice(2).join("/")
-
-    if (lang && !token && PROTECTED_ROUTES.some(route => path.startsWith(route))) {
-        return NextResponse.redirect(new URL(`/${lang}/auth/login`, req.url))
-    } else if (lang && token && ONLY_GUEST_ROUTES.some(route => path.startsWith(route))) {
-        return NextResponse.redirect(new URL(`/${lang}/`, req.url))
-    }
-
-    return NextResponse.next()
+export default async function AppProxy(request: NextRequest) {
+  return await runGuards(request, [
+    authGuard(),
+    guestGuard(),
+    emptyUsernameGuard(),
+    hasUsernameGuard()
+  ])
 }
 
 export const config = {
-    matcher: [
-        "/:path*"
-    ]
+  matcher: ["/es/:path*", "/en/:path*", "/fr/:path*", "/pt/:path*", "/nl/:path*"],
 }

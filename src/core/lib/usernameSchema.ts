@@ -1,6 +1,6 @@
 import z from "zod";
 
-const signupUsernameSchema = z.object({
+const usernameSchema = z.object({
     username: z.string({
         error: "Campo obligatorio"
     }).min(5, {
@@ -16,5 +16,5 @@ const signupUsernameSchema = z.object({
     })
 })
 
-export default signupUsernameSchema
-export type SignupUsernameInput = z.infer<typeof signupUsernameSchema>
+export default usernameSchema
+export type UsernameInput = z.infer<typeof usernameSchema>

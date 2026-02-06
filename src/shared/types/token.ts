@@ -1,4 +1,4 @@
-import User from "./user"
+import User from "../../core/types/user"
 
 type Token = {
     token: string

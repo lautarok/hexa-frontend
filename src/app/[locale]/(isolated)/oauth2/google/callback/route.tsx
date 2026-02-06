@@ -1,6 +1,5 @@
 import setTokenCookie from "@/src/features/auth/services/setTokenCookie"
 import googleSignOn from "@/src/features/oauth2/google/services/googleSignOn"
-import { redirect } from "next/navigation"
 import { NextResponse } from "next/server"
 
 export async function GET(req: Request, {

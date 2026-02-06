@@ -1,4 +1,4 @@
-import RetryDialogContent from "../ui/dialog/RetryDialogContent";
+import RetryDialogContent from "@/src/core/ui/dialog/RetryDialogContent";
 
 export default function retryDialog(message: string) {
     return <RetryDialogContent>

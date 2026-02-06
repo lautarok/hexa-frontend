@@ -1,6 +1,6 @@
 "use server"
 
-import ModalDialog from "@/src/core/components/ModalDialog";
+import ModalDialog from "@/src/core/ui/dialog/ModalDialog";
 import AuthProvider from "@/src/core/providers/AuthProvider";
 import ModalDialogProvider from "@/src/core/providers/ModalDialogProvider";
 import getAuth from "@/src/core/services/getAuth";

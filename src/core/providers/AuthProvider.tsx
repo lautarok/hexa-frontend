@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from "react"
 import AuthContext from "../context/authContext"
-import User from "@/src/shared/types/user"
+import User from "@/src/core/types/user"
 import setTokenCookie from "@/src/features/auth/services/setTokenCookie"
 
 export default function AuthProvider({
@@ -21,25 +21,20 @@ export default function AuthProvider({
         _user?.role.permissions.some(p => p.alias === "admin")
     , [_user])
 
-    const handleSetToken = async (token?: string) => {
-        _setToken(token)
-        await setTokenCookie(token)
-    }
-
     return (
         <AuthContext.Provider
             value={{
                 token: _token,
                 user: _user,
                 isAdmin: isAdmin,
-                set(user) {
+                async set(token, user) {
+                    await setTokenCookie(token)
+                    _setToken(token)
                     _setUser(user)
                 },
-                setToken(token) {
-                    return handleSetToken(token)
-                },
                 async clear() {
-                    await handleSetToken(undefined)
+                    await setTokenCookie(undefined)
+                    _setToken(undefined)
                     _setUser(undefined)
                 }
             }}

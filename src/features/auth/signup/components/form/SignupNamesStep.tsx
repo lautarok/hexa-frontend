@@ -6,7 +6,7 @@ import { SubmitErrorHandler, useForm } from "react-hook-form";
 import signupNamesSchema from "../../lib/signupNamesSchema";
 import { forwardRef, useImperativeHandle } from "react";
 import FormField from "@/src/shared/ui/form/FormField";
-import useModalDialog from "@/src/shared/hooks/useModalDialog";
+import useModalDialog from "@/src/core/hooks/useModalDialog";
 import retryDialog from "@/src/shared/lib/retryDialog";
 import useFormCarrousel from "@/src/shared/hooks/useFormCarrousel";
 import { useParams } from "next/navigation";

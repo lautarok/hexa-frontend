@@ -37,7 +37,8 @@ export default function FormField({
     }, [inputRef])
 
     const isCurrent = useMemo(() =>
-        !!formCarrouselStep?.isCurrent 
+        !formCarrouselStep
+        || !!formCarrouselStep?.isCurrent 
     , [formCarrouselStep])
 
     useEffect(() => {
@@ -72,7 +73,10 @@ export default function FormField({
                 {
                     IconComponent ? (
                         <>
-                            <IconComponent size={18} />
+                            <IconComponent
+                                size={18}
+                                className={error ? "text-red-200" : ""}
+                            />
                             <div
                                 className={[
                                     "w-[1px] h-6",

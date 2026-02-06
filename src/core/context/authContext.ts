@@ -1,14 +1,13 @@
 "use client"
 
 import { createContext } from "react"
-import User from "../../shared/types/user"
+import User from "../types/user"
 
 const AuthContext = createContext<{
     token?: string
     user?: User
     isAdmin?: boolean
-    set: (user: User) => void
-    setToken: (token: string) => Promise<void>
+    set: (token: string, user: User) => Promise<void>
     clear: () => Promise<void>
 } | null>(null)
 

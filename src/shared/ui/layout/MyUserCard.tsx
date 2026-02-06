@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import useAuth from "../../hooks/useAuth"
+import useAuth from "../../../core/hooks/useAuth"
 import Avatar from "../common/Avatar"
 import DropdownMenu from "../dropdown/DropdownMenu"
 import DropdownMenuBox from "../dropdown/DropdownMenuBox"

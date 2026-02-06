@@ -1,9 +1,11 @@
+"use client"
+
 import { forwardRef, useImperativeHandle } from "react"
 import * as Icon from "akar-icons"
 import useFormCarrousel from "@/src/shared/hooks/useFormCarrousel"
 import Form from "@/src/shared/ui/form/Form"
 import { useForm } from "react-hook-form"
-import signupUsernameSchema, { SignupUsernameInput } from "../../lib/signupUsernameSchema"
+import usernameSchema, { UsernameInput } from "../../../../../core/lib/usernameSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import FormButton from "@/src/shared/ui/form/FormButton"
 import FormField from "@/src/shared/ui/form/FormField"
@@ -15,8 +17,8 @@ export type SignupUsernameStepHandle = {
 
 const SignupUsernameStep = forwardRef<SignupUsernameStepHandle>(
     ({}, ref) => {
-        const form = useForm<SignupUsernameInput>({
-            resolver: zodResolver(signupUsernameSchema)
+        const form = useForm<UsernameInput>({
+            resolver: zodResolver(usernameSchema)
         })
         
         const formCarrousel = useFormCarrousel()

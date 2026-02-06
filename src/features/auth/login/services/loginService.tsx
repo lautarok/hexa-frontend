@@ -1,4 +1,4 @@
-import http from "@/src/shared/services/http"
+import * as http from "@/src/shared/services/http"
 import Token from "@/src/shared/types/token"
 
 export const login = async ({

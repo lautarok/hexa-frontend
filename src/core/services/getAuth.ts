@@ -1,8 +1,16 @@
 "use server"
 
-import http from "@/src/shared/services/http"
-import User from "@/src/shared/types/user"
+import * as http from "@/src/shared/services/http"
+import User from "@/src/core/types/user"
 import { cookies } from "next/headers"
+
+const getAuthUser = async (token: string) => {
+    return await http.GET<User>("auth", {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+}
 
 export default async function getAuth() {
     const cookieStore = await cookies(),
@@ -13,18 +21,13 @@ export default async function getAuth() {
     }
 
     try {
-        const authResponse = await http.GET<User>("auth", {
-            headers: {
-                "Authorization": `Bearer ${token.value}`
-            }
-        })
+        const user = await getAuthUser(token.value)
 
         return {
             token: token.value,
-            user: authResponse
+            user
         }
     } catch (error) {
-        console.error(error)
         return null
     }
 }
