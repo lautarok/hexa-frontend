@@ -1,14 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import useAuth from "../../../core/hooks/useAuth"
-import Avatar from "../common/Avatar"
-import DropdownMenu from "../dropdown/DropdownMenu"
-import DropdownMenuBox from "../dropdown/DropdownMenuBox"
-import DropdownMenuButton from "../dropdown/DropdownMenuButton"
-import DropdownMenuTitle from "../dropdown/DropdownMenuTitle"
+import useAuth from "../../hooks/useAuth"
+import Avatar from "../../../shared/ui/common/Avatar"
+import DropdownMenu from "../../../shared/ui/dropdown/DropdownMenu"
+import DropdownMenuBox from "../../../shared/ui/dropdown/DropdownMenuBox"
+import DropdownMenuButton from "../../../shared/ui/dropdown/DropdownMenuButton"
+import DropdownMenuTitle from "../../../shared/ui/dropdown/DropdownMenuTitle"
 import * as Icon from "akar-icons"
-import DropdownMenuLink from "../dropdown/DropdownMenuLink"
+import DropdownMenuLink from "../../../shared/ui/dropdown/DropdownMenuLink"
 import { useParams, useRouter } from "next/navigation"
 
 export default function MyUserCard() {

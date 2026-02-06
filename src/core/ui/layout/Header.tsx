@@ -1,12 +1,12 @@
 "use client"
 
 import Image from "next/image";
-import getTraduction from "../../services/getTraduction";
+import getTraduction from "../../../shared/services/getTraduction";
 import AppIcon from "@/public/images/icon.png"
 import Link from "next/link";
-import useAuth from "../../../core/hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import MyUserCard from "./MyUserCard";
-import Button from "../common/Button";
+import Button from "../../../shared/ui/common/Button";
 import { useParams } from "next/navigation";
 
 export default function Header() {

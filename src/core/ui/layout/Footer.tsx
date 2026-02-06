@@ -1,10 +1,10 @@
 "use client"
 
 import Image from "next/image";
-import getTraduction from "../../services/getTraduction";
+import getTraduction from "../../../shared/services/getTraduction";
 import SpecialIcon from "@/public/images/icon.png"
 import Link from "next/link";
-import LocaleSelector from "./LocaleSelector";
+import LocaleSelector from "../../../shared/ui/layout/LocaleSelector";
 import { useParams } from "next/navigation";
 
 export default function Footer() {

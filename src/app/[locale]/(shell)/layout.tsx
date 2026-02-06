@@ -1,5 +1,5 @@
-import Footer from "@/src/shared/ui/layout/Footer"
-import Header from "@/src/shared/ui/layout/Header"
+import Footer from "@/src/core/ui/layout/Footer"
+import Header from "@/src/core/ui/layout/Header"
 
 export default async function ShellLayout({
     children
