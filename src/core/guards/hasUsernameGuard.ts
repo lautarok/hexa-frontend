@@ -7,7 +7,14 @@ import redirectResponse from "../services/redirectResponse";
 export default function hasUsernameGuard(): AppGuard {
     return {
         async canActivate(req: NextRequest) {
-            const locale = getRequestLocale(req)
+            const locale = getRequestLocale(req),
+                hasToken = req.cookies.has("auth_token")
+
+            if (!hasToken) {
+                return
+            } else {
+                console.log("2222222222222" + req.nextUrl.pathname)
+            }
 
             const auth = await getAuth()
             if (auth?.user && !auth?.user.credential?.username) {

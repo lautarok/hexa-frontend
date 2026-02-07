@@ -6,7 +6,12 @@ import redirectResponse from "../services/redirectResponse"
 export default function emptyUsernameGuard() {
     return {
         async canActivate(req: NextRequest) {
-            const locale = getRequestLocale(req)
+            const locale = getRequestLocale(req),
+                hasToken = req.cookies.has("auth_token")
+
+            if (!hasToken) {
+                return redirectResponse(req, `/${locale}/`)
+            }
 
             const auth = await getAuth()
             if (auth?.user.credential?.username) {

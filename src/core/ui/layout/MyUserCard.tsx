@@ -82,7 +82,6 @@ export default function MyUserCard() {
                 <DropdownMenuButton
                     onClick={async () => {
                         await auth?.clear()
-                        router.push(`/${locale}/auth/login`)
                     }}
                     suffixIcon="Door"
                 >

@@ -6,10 +6,10 @@ import redirectResponse from "../services/redirectResponse";
 export default function authGuard(): AppGuard {
     return {
         async canActivate(req: NextRequest) {
-            const token = req.cookies.get("auth_token")?.value,
+            const hasToken = req.cookies.has("auth_token"),
                 locale = getRequestLocale(req)
 
-            if (!token) {
+            if (!hasToken) {
                 return redirectResponse(req, `/${locale}/`)
             }
         },

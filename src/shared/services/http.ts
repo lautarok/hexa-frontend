@@ -59,6 +59,16 @@ export const POST = async <TResponse>(
     })
 }
 
+export const PUT = async <TResponse>(
+    path: string,
+    options?: MutationMethodOptions
+): Promise<TResponse> => {
+    return await apiCall(path, {
+        ...options,
+        method: "PUT"
+    })
+}
+
 export const GET = async <TResponse>(
     path: string,
     options?: DefaultMethodOptions
